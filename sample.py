@@ -13,7 +13,10 @@ def index():
 
 @app.route('/foo', methods=['POST'])
 def foo():
-    return insert_user_message(thoughts=request.form['thoughts'])
+    thoughts = request.form['thoughts']
+    print(thoughts)
+    insert_user_message(thoughts)
+    return render_template('index.html')
 
 
 if __name__ == "__main__":
